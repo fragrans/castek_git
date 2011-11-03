@@ -10,6 +10,19 @@
 #include "cv.h"
 #include "highgui.h"
 
+#ifdef NDEBUG
+#pragma comment(lib,"opencv_ml231.lib")
+#pragma comment(lib,"opencv_core231.lib")
+#pragma comment(lib,"opencv_highgui231.lib")
+#pragma comment(lib,"opencv_imgproc231.lib")
+#else
+#pragma comment(lib,"opencv_ml231d.lib")
+#pragma comment(lib,"opencv_core231d.lib")
+#pragma comment(lib,"opencv_highgui231d.lib")
+#pragma comment(lib,"opencv_imgproc231d.lib")
+
+#endif
+
 int main( int argc, char** argv )
 {
 	IplImage	*img;
