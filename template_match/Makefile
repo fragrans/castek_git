@@ -126,6 +126,19 @@ example2\fast:
 .PHONY : example2\fast
 
 #=============================================================================
+# Target rules for targets named opencv7_5
+
+# Build rule for target.
+opencv7_5: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) opencv7_5
+.PHONY : opencv7_5
+
+# fast build rule for target.
+opencv7_5\fast:
+	$(MAKE) -f CMakeFiles\opencv7_5.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\opencv7_5.dir\build
+.PHONY : opencv7_5\fast
+
+#=============================================================================
 # Target rules for targets named template_match
 
 # Build rule for target.
@@ -186,6 +199,30 @@ opencv2.cpp.s:
 	$(MAKE) -f CMakeFiles\example2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\example2.dir\opencv2.cpp.s
 .PHONY : opencv2.cpp.s
 
+opencv7_5.obj: opencv7_5.cpp.obj
+.PHONY : opencv7_5.obj
+
+# target to build an object file
+opencv7_5.cpp.obj:
+	$(MAKE) -f CMakeFiles\opencv7_5.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\opencv7_5.dir\opencv7_5.cpp.obj
+.PHONY : opencv7_5.cpp.obj
+
+opencv7_5.i: opencv7_5.cpp.i
+.PHONY : opencv7_5.i
+
+# target to preprocess a source file
+opencv7_5.cpp.i:
+	$(MAKE) -f CMakeFiles\opencv7_5.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\opencv7_5.dir\opencv7_5.cpp.i
+.PHONY : opencv7_5.cpp.i
+
+opencv7_5.s: opencv7_5.cpp.s
+.PHONY : opencv7_5.s
+
+# target to generate assembly for a file
+opencv7_5.cpp.s:
+	$(MAKE) -f CMakeFiles\opencv7_5.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\opencv7_5.dir\opencv7_5.cpp.s
+.PHONY : opencv7_5.cpp.s
+
 template_match.obj: template_match.cpp.obj
 .PHONY : template_match.obj
 
@@ -219,6 +256,7 @@ help:
 	@echo ... edit_cache
 	@echo ... example1
 	@echo ... example2
+	@echo ... opencv7_5
 	@echo ... rebuild_cache
 	@echo ... template_match
 	@echo ... opencv1.obj
@@ -227,6 +265,9 @@ help:
 	@echo ... opencv2.obj
 	@echo ... opencv2.i
 	@echo ... opencv2.s
+	@echo ... opencv7_5.obj
+	@echo ... opencv7_5.i
+	@echo ... opencv7_5.s
 	@echo ... template_match.obj
 	@echo ... template_match.i
 	@echo ... template_match.s
