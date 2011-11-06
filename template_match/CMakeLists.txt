@@ -34,3 +34,26 @@ ELSEIF(WIN32)
 ELSE()
 MESSAGE(FATAL, "I cann't recognize this platform.")
 ENDIF()
+
+project (opencv2_1)
+add_executable(opencv2_1 opencv2_1.cpp)
+
+IF(UNIX)
+target_link_libraries(opencv2_1
+ opencv_highgui opencv_core opencv_imgproc)
+ELSEIF(WIN32)
+# target_link_libraries(opencv2_1 "opencv_highgui231" "opencv_core231" "opencv_imgproc231")
+ELSE()
+MESSAGE(FATAL, "I cann't recognize this platform.")
+ENDIF()
+
+project (opencv2_2)
+add_executable(opencv2_2 opencv2_2.cpp)
+
+IF(UNIX)
+target_link_libraries(opencv2_2 opencv_highgui opencv_core opencv_imgproc)
+ELSEIF(WIN32)
+# target_link_libraries(opencv2_2 "opencv_highgui231" "opencv_core231" "opencv_imgproc231")
+ELSE()
+MESSAGE(FATAL, "I cann't recognize this platform.")
+ENDIF()
