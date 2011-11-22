@@ -13,6 +13,28 @@ ELSE()
 MESSAGE(FATAL, "I cann't recognize this platform.")
 ENDIF()
 
+project (contour_match2)
+add_executable(contour_match2 contour_match2.cpp)
+
+IF(UNIX)
+target_link_libraries(contour_match2 opencv_highgui opencv_core opencv_imgproc)
+ELSEIF(WIN32)
+# target_link_libraries(contour_match2 "opencv_highgui231" "opencv_core231" "opencv_imgproc231")
+ELSE()
+MESSAGE(FATAL, "I cann't recognize this platform.")
+ENDIF()
+
+project (contour_match)
+add_executable(contour_match contour_match.cpp)
+
+IF(UNIX)
+target_link_libraries(contour_match opencv_highgui opencv_core opencv_imgproc)
+ELSEIF(WIN32)
+# target_link_libraries(contour_match "opencv_highgui231" "opencv_core231" "opencv_imgproc231")
+ELSE()
+MESSAGE(FATAL, "I cann't recognize this platform.")
+ENDIF()
+
 project (template_match)
 add_executable(template_match template_match.cpp)
 
