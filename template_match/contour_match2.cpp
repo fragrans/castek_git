@@ -21,6 +21,9 @@ int main(int argc, char* argv[]) {
 	IplImage* img_edge = cvCreateImage( cvGetSize(img_8uc1), 8, 1 );
 	IplImage* img_8uc3 = cvCreateImage( cvGetSize(img_8uc1), 8, 3 );
 	cvThreshold( img_8uc1, img_edge, 128, 255, CV_THRESH_BINARY );
+    cvShowImage("grey", img_edge);
+    cvWaitKey(0);
+//    exit(0);
 	CvMemStorage* storage = cvCreateMemStorage();
 	CvSeq* first_contour = NULL;
 	int Nc = cvFindContours(
@@ -28,10 +31,14 @@ int main(int argc, char* argv[]) {
 		storage,
 		&first_contour,
 		sizeof(CvContour),
-		CV_RETR_LIST // Try all four values and see what happens
+		/* CV_RETR_LIST */ // Try all four values and see what happens
+        CV_RETR_EXTERNAL
 		);
 	int n=0;
 	printf( "Total Contours Detected: %d\n", Nc );
+    cvShowImage("edge", img_edge);
+    cvSaveImage("external.jpg", img_edge);
+    cvWaitKey(0);
 	for( CvSeq* c=first_contour; c!=NULL; c=c->h_next ) {
 		cvCvtColor( img_8uc1, img_8uc3, CV_GRAY2BGR );
 		cvDrawContours(
@@ -39,8 +46,8 @@ int main(int argc, char* argv[]) {
 			c,
 			CV_RGB(0xff,0x00,0x00),
 			CV_RGB(00,0x00,0xff),
-			0, // Try different values of max_level, and see what happens
-			2,
+			2, // Try different values of max_level, and see what happens
+			1,
 			8
 			);
 		printf("Contour #%d\n", n );
