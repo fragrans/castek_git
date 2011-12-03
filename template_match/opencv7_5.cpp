@@ -16,11 +16,14 @@
 #pragma comment(lib,"opencv_core231d.lib")
 #pragma comment(lib,"opencv_highgui231d.lib")
 #pragma comment(lib,"opencv_imgproc231d.lib")
-
 #endif
 
 int main( int argc, char** argv ) {
     IplImage *src, *templ,*ftmp[6]; //ftmp will hold results
+	
+	CvPoint minloc[6], maxloc[6];
+	double minval[6], maxval[6];
+
     int i;
     if( argc == 3){
 //Read in the source image to be searched:
@@ -43,7 +46,13 @@ int main( int argc, char** argv ) {
 //DO THE MATCHING OF THE TEMPLATE WITH THE IMAGE:218 | Chapter 7: Histograms and Matching    Example 7-5. Template matching (continued)
         for(i=0; i<6; ++i){
             cvMatchTemplate( src, templ, ftmp[i], i);
-            cvNormalize(ftmp[i],ftmp[i],1,0,CV_MINMAX);
+            //cvNormalize(ftmp[i],ftmp[i],1,0,CV_MINMAX);
+			cvMinMaxLoc(ftmp[i], &minval[i], &maxval[i], &minloc[i], &maxloc[i], 0);
+			std::cerr /*<< i << ":" << "minval: " << minval[i] \
+						<< " maxval: " << maxval[i] */					\
+					  << " minloc: " << minloc[i].x << ", " << minloc[i].y	\
+					  << " maxloc: " << maxloc[i].x << ", " << maxloc[i].y;
+			std::cerr << "\n"; 
         }
 //DISPLAY
         cvNamedWindow( "Template", 0 );
