@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;D:\zlib-1.2.4&quot;;&quot;D:\libpng-1.2.37-lib\include&quot;;&quot;D:\jpeg-6b-4-lib\include&quot;"
+				AdditionalIncludeDirectories="&quot;D:\zlib-1.2.4&quot;;D:\lpng156;&quot;D:\jpeg-8c&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="zlib.lib libpng.lib jpeg.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;D:\zlib-1.2.4&quot;;&quot;D:\libpng-1.2.37-lib\lib&quot;;&quot;D:\jpeg-6b-4-lib\lib&quot;"
+				AdditionalLibraryDirectories="&quot;D:\zlib-1.2.4&quot;;D:\lpng156;&quot;D:\jpeg-8c\Release&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -95,7 +95,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="1"
+			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -117,6 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="&quot;D:\zlib-1.2.4&quot;;&quot;D:\libpng-1.2.37-lib\include&quot;;&quot;D:\jpeg-6b-4-lib\include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -135,7 +136,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="zlib.lib libpng.lib jpeg.lib"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="&quot;D:\zlib-1.2.4&quot;;&quot;D:\libpng-1.2.37-lib\lib&quot;;&quot;D:\jpeg-6b-4-lib\lib&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				OptimizeReferences="2"
