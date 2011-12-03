@@ -5,6 +5,7 @@
 #include <cxcore.h>
 #include <highgui.h>
 #include <stdio.h>
+#include <iostream>
 
 #ifdef NDEBUG
 #pragma comment(lib,"opencv_ml231.lib")
