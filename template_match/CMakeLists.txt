@@ -18,7 +18,19 @@ ELSE()
 MESSAGE(FATAL, "I cann't recognize this platform.")
 ENDIF()
 
-FIND_PACKAGE( OpenCV REQUIRED )
+#FIND_PACKAGE( OpenCV REQUIRED )
+
+project (find_obj)
+add_executable(find_obj find_obj.cpp)
+
+IF(UNIX)
+target_link_libraries(find_obj ${OpenCV_LIBS} )
+ELSEIF(WIN32)
+target_link_libraries(find_obj "opencv_highgui231" "opencv_core231" "opencv_imgproc231")
+ELSE()
+MESSAGE(FATAL, "I cann't recognize this platform.")
+ENDIF()
+
 
 project (camera)
 add_executable(camera camera.cpp)
