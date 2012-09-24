@@ -1,0 +1,10 @@
+all: auto lambda rvalue
+
+auto:auto.cxx
+	cl /EHsc auto.cxx
+	
+lambda:lambda.cxx
+	cl /EHsc lambda.cxx
+
+rvalue:rvalue.cxx
+	cl /EHsc /MD rvalue.cxx /Id:/boost-trunk /link /LIBPATH:d:/boost-trunk/stage/lib
