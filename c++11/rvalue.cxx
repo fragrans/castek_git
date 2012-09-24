@@ -6,22 +6,29 @@
 #pragma warning(pop)
 using namespace std;
  
-vector<int>&& doubleValues (const vector<int>& v)
+vector<std::string> doubleValues (const vector<std::string>& v)
 {
-    vector<int> new_values( v.size() );
+    vector<std::string> new_values;
+	new_values.reserve( v.size() );
     for (auto itr = new_values.begin(), end_itr = new_values.end(); itr != end_itr; ++itr )
     {
-        new_values.push_back( 2 * *itr );
+        new_values.push_back( *itr );
     }
-    return std::move(new_values);
+	std::cout << "start: " << boost::posix_time::to_simple_string(boost::posix_time::microsec_clock::local_time());
+	std::cout << "\n";
+    return new_values;
 }
  
 int main()
 {
-    vector<int> v;
-    for ( int i = 0; i < 100; i++ )
-    {
-        v.push_back( i );
-    }
-    v = doubleValues( v );
+	size_t size = 1000000;
+    vector<std::string> v(size);
+	for(auto iter = v.begin(); iter != v.end(); iter ++)
+	{
+		*iter = "Hello world.";
+	}
+	
+    vector<std::string> v2 = doubleValues( v );
+	
+	std::cout << "stop: " << boost::posix_time::to_simple_string(boost::posix_time::microsec_clock::local_time());
 }

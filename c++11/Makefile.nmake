@@ -7,4 +7,4 @@ lambda:lambda.cxx
 	cl /EHsc lambda.cxx
 
 rvalue:rvalue.cxx
-	cl /EHsc /MD rvalue.cxx /Id:/boost-trunk /link /LIBPATH:d:/boost-trunk/stage/lib
+	cl /EHsc /MDd rvalue.cxx /Id:/boost-trunk /link /STACK:102400000 /LIBPATH:d:/boost-trunk/stage/lib
